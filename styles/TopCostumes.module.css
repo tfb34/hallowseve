@@ -1,0 +1,12 @@
+.bg{
+    height:100vh;
+    background-image: url("/images/doorway.jpg");
+    background-position: right;
+}
+
+.costumeItem{
+    display:"flex";
+    align-items:"baseline";
+    text-transform:"uppercase";
+    text-shadow: "0px 2px 2px #fff9f9";
+}

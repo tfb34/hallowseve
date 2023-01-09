@@ -1,9 +1,14 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { Inter, Patrick_Hand } from '@next/font/google'
+import { Inter, Patrick_Hand,Roboto_Condensed } from '@next/font/google'
 import styles from '../styles/Home.module.css'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+
+import { useState,useEffect } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
+
 
 
 const patrickHand = Patrick_Hand({
@@ -11,8 +16,29 @@ const patrickHand = Patrick_Hand({
     subsets: ['latin'],
   })
 
+const robotoCondensed = Roboto_Condensed({
+    weight: '400',
+    subsets: ['latin'],
+  })
+
 
 export default function Home() {
+  const [value,setValue] = useState(0)
+  const router = useRouter()
+
+  function play(){
+    new Audio("/mixkit-old-telephone-ring-1357.wav").play()
+    setTimeout(() => {
+      router.push("/top-costumes")
+    }, "3000")
+  }
+
+
+  useEffect(()=>{
+    if(value===1) play()
+    
+  },[value])
+
   return (
     <>
       <Head>
@@ -26,14 +52,19 @@ export default function Home() {
         <section>
             <div className='container' style={{textAlign:"center"}}>
                 <div className='wrapper'>
-                <h1 className={[patrickHand.className, 'logo'].join(" ")}>HALLOWS EVE</h1>
-                <a className={[styles.fancyBtn, "my-5",inter.className].join(" ")} >START</a>
+                {/* <h1 className={[patrickHand.className, 'logo','glitch'].join(" ")}>HALLOWS EVE</h1> */}
+                <h1 className={[patrickHand.className, 'logo',styles.glitch].join(" ")}>
+                  <span arial-hidden="true">HALLOWS EVE</span>
+                  HALLOWS EVE
+                  <span arial-hidden="true">HALLOWS EVE</span>
+                </h1>
+                <a onClick={()=>{setValue(value+1)}} className={[styles.fancyBtn, "my-5",inter.className].join(" ")}>START</a>
+                {/* <button onClick={()=>{setValue(value+1)}} className={[styles.fancyBtn, "my-5",inter.className].join(" ")}>Play sound</button> */}
                 <p className={[inter.className,'fs-caption'].join(" ")}>THE DARK DESCENT INTO GOOGLE TRENDS MOST POPULAR COSTUMES. 2022</p>
                 </div>
                 
             </div>
         </section>
-        <div className='overlay'></div>
       </main>
     </>
   )
