@@ -261,7 +261,7 @@ body{
 .scrollable{
   overflow-y: scroll;
   height: 100vh;
-  padding-bottom: 200px;
+  padding-bottom: 400px;
 }
 input[type="text"]:focus-visible {
   outline: 0;
@@ -295,3 +295,36 @@ input[type="text"]:focus-visible {
 .glow{
   text-shadow: 1px 1px 8px white;
 }
+span.MuiButtonBase-root {
+  display: none;
+}
+.theme-buttons{
+  width:100%;
+}
+.theme-buttons > div{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.theme-buttons label{
+  margin:0;
+    width: 100%;
+    text-align: center;
+    display: block;
+}
+.input-group{
+  text-align: center;
+}
+.input-group .form-label{
+  margin-bottom:1em;
+  display: block;
+}
+#costume-wizard h1{
+  font-size: var(--fs-600);
+}
+#costume-wizard .form-label{
+  font-size: var(--fs-300);
+}
+#costume-wizard span.MuiTypography-root{
+  font-size: var(--fs-200);
+}
+
