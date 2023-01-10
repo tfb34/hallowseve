@@ -327,4 +327,7 @@ span.MuiButtonBase-root {
 #costume-wizard span.MuiTypography-root{
   font-size: var(--fs-200);
 }
+#costume-wizard .result{
+  font-size: 21px;
+}
 
